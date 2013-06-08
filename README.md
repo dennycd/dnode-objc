@@ -68,11 +68,11 @@ For details please look into the test directory for OSX and iOS demo projects.
 Denny C. Dai <dennycd@me.com> or visit <http://dennycd.me> 
 
 
-## Road Map
+## Task List
 
-* [ ] local listening server that receives remote connection 
-* [ ] callback to remote from a previous remote-to-local invocation
-* [ ] more unit testing and examples 
+* local listening server that receives remote connection 
+* callback to remote from a previous remote-to-local invocation
+* more unit testing and examples 
 
 
 ## License 
