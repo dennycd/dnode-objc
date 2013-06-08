@@ -65,4 +65,4 @@ A number of delegate callbacks are
 For details please look into the test directory for OSX and iOS demo projects.
 
 ## Author
-Denny C. Dai  <http://dennycd.me>  <dennycd@me.com> 
+Denny C. Dai <dennycd@me.com> or visit <http://dennycd.me> 
