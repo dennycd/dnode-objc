@@ -62,4 +62,7 @@ A number of delegate callbacks are
 -(void)remoteReady; //remote interface ready
 ```
 
-For detailed examples please look into the test directory for OSX and iOS xcode demos. 
+For details please look into the test directory for OSX and iOS demo projects.
+
+## Author
+Denny C. Dai  <http://dennycd.me>  <dennycd@me.com> 
