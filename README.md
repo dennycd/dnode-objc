@@ -8,7 +8,7 @@ An Objective-C native implementation of [dnode](http://github.com/substack/dnode
 
 Start by subclassing DNode and define your local dnode interface in a header file.
 
- ''' objective-c
+'''objective-c
 #import "DNode.h"
 
 @interface TestClient : DNode
@@ -17,7 +17,7 @@ Start by subclassing DNode and define your local dnode interface in a header fil
 '''
 
 To expose your local dnode interface to the remote, use C++ macro `DEFINE_CLIENT_METHOD(local_name)`. For example
- ''' objective-c
+'''objective-c
 //the direct call from remote dnode
 DEFINE_CLIENT_METHOD(hello) {
     NSLog(@"hello from server: %@ ", args); 
@@ -26,7 +26,7 @@ DEFINE_CLIENT_METHOD(hello) {
 
 To explicitly declared a method on remote and receive callback, use C++ macro `DEFINE_SERVER_METHOD_WITH_CALLBACK(remote_name)`. For example
 
- ''' objective-c
+'''objective-c
 //the callback from a previous local-to-remote call
 DEFINE_SERVER_METHOD_WITH_CALLBACK(echo) {
     NSLog(@"callback from server %@", args);
@@ -34,7 +34,7 @@ DEFINE_SERVER_METHOD_WITH_CALLBACK(echo) {
 '''
 
 To invoke a method on remote dnode object, use C++ macro `CALL_SERVER_METHOD(remote_name, arg)`. An example is 
- ''' objective-c
+'''objective-c
 -(void)foo
 {
     id arg = @[@"hello from client"];
@@ -43,7 +43,7 @@ To invoke a method on remote dnode object, use C++ macro `CALL_SERVER_METHOD(rem
 ```
 
 A complete interface implementation may look like this 
- ''' objective-c
+'''objective-c
 #import "TestClient.h"
 
 @interface TestClient()
