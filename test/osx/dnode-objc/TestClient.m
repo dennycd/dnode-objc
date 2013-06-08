@@ -8,13 +8,6 @@
 
 #import "TestClient.h"
 
-@interface TestClient()
-//local dnode interface declaration
-DECLARE_CLIENT_METHOD(hello);
-//remote dnode interface declaration
-DECLARE_SERVER_METHOD(echo);
-@end
-
 @implementation TestClient
 
 -(void)foo
