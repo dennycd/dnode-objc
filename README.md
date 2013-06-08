@@ -24,7 +24,7 @@ DEFINE_CLIENT_METHOD(hello) {
 }
 ```
 
-To explicitly declare a method on remote and receive callback, use C++ macro `DEFINE_SERVER_METHOD_WITH_CALLBACK(remote_name)`. For example
+To explicitly declare a method on remote and receive callback, use `DEFINE_SERVER_METHOD_WITH_CALLBACK(remote_name)` 
 
 ```objective-c
 //the callback from a previous local-to-remote call
@@ -33,7 +33,7 @@ DEFINE_SERVER_METHOD_WITH_CALLBACK(echo) {
 }
 ```
 
-To invoke a method on remote dnode object, use C++ macro `CALL_SERVER_METHOD(remote_name, arg)`. An example is 
+To invoke a method on remote, use  `CALL_SERVER_METHOD(remote_name, arg)` whose remote_name must match the name defined in `DEFINE_SERVER_METHOD_WITH_CALLBACK`. For example 
 ```objective-c
 -(void)foo
 {
