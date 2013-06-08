@@ -24,7 +24,7 @@ DEFINE_CLIENT_METHOD(hello) {
 }
 ```
 
-To explicitly declared a method on remote and receive callback, use C++ macro `DEFINE_SERVER_METHOD_WITH_CALLBACK(remote_name)`. For example
+To explicitly declare a method on remote and receive callback, use C++ macro `DEFINE_SERVER_METHOD_WITH_CALLBACK(remote_name)`. For example
 
 ```objective-c
 //the callback from a previous local-to-remote call
@@ -42,34 +42,24 @@ To invoke a method on remote dnode object, use C++ macro `CALL_SERVER_METHOD(rem
 }
 ```
 
-A complete interface implementation may look like this 
+To create a dnode instance and connect to a remote 
 ```objective-c
-#import "TestClient.h"
-
-@interface TestClient()
-//local dnode interface declaration
-DECLARE_CLIENT_METHOD(hello);
-//remote dnode interface declaration
-DECLARE_SERVER_METHOD(echo);
-@end
-
-@implementation TestClient
-
--(void)foo
-{
-    id arg = @[@"hello from client"];
-    CALL_SERVER_METHOD(echo, arg);
-}
-
-//the direct call from remote dnode
-DEFINE_CLIENT_METHOD(hello) {
-    NSLog(@"hello: %@ ", args);
-}
-
-//the callback from a previous local-to-remote call
-DEFINE_SERVER_METHOD_WITH_CALLBACK(echo) {
-    NSLog(@"callback from server %@", args);
-}
-
-@end
+TestClient* client = [[TestClient alloc] init];
+[client connectToHost:@"192.168.1.100" Port:8000 Callback:^(BOOL success, NSNumber* err){
+        NSLog(@"connected %d with err %@", success, err);
+    }];
 ```
+Set up a delegate object to get notified on connection status 
+```objective-c
+[client addListener:self CallbackQueue:dispatch_get_main_queue()];
+```
+
+A number of delegate callbacks are 
+```objective-c
+-(void)connectSuccess; //connected to remote
+-(void)connectFailed:(NSNumber*)code; 
+-(void)disconnected; 
+-(void)remoteReady; //remote interface ready
+```
+
+For detailed examples please look into the test directory for OSX and iOS xcode demos. 
