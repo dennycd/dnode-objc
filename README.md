@@ -76,4 +76,4 @@ Denny C. Dai <dennycd@me.com> or visit <http://dennycd.me>
 
 
 ## License 
-The MIT License (MIT)
+The MIT License
