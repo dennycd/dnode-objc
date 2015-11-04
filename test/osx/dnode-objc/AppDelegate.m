@@ -32,7 +32,7 @@
 //server API ready 
 -(void)remoteReady
 {
-    NSAssert(dispatch_get_current_queue() == dispatch_get_main_queue(), @"not running on main queue");
+    NSAssert([NSThread isMainThread], @"not running on main queue");
     NSLog(@"remoteReady");
 
     [_client foo];
